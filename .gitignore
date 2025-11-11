@@ -1,0 +1,43 @@
+# OS/Editor Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Dependencies (regenerate with composer install)
+vendor/
+composer.phar
+*.phar
+
+# Environment/Secrets (use .env.example for template)
+.env
+.env.local
+.env.*.local
+
+# Logs (yours are huge—delete them manually first if needed)
+*.log
+error_log
+log.txt
+**/error_log
+**/error_log.txt
+
+# Caches/Temps (common in PHP)
+cache/
+tmp/
+*.tmp
+*.bak
+*.cache
+
+# User Uploads (in private/uploads—keep dir, ignore contents)
+private/uploads/*
+!private/uploads/.gitkeep  # Optional: Add empty .gitkeep to preserve dir
+
+# Database Dumps (if you add any)
+*.sql
+*.sql.gz
+
+# Runtime Data
+session*
+uploads/*

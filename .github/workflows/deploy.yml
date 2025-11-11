@@ -1,0 +1,26 @@
+name: Deploy to GoDaddy
+
+on:
+  push:
+    branches: [ main ]  # Triggers on push to main; change if your branch differs
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4  # Checks out your repo
+
+    - name: Deploy to FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5  # Popular action for FTP
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        port: 21  # Default FTP port
+        local-dir: ./  # Your local public_html root (adjust if subfolder)
+        server-dir: /public_html/  # GoDaddy web root
+        exclude: |  # Skip sensitive/large files
+          **/.git*
+          **/node_modules/**
+          **/*.log
+          config.php  # Add your sensitive files

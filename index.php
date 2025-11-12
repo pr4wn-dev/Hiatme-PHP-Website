@@ -19,7 +19,6 @@ $hiatme_methods->InitDB(
 );
 $hiatme_methods->SetRandomKey($_ENV['RANDOM_KEY']);
 
-//boo 
 // Check for auth token in cookie
 $loggedIn = false;
 $currentUser = null;
